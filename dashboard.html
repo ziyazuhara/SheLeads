@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - SheLeads</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>SheLeads</h2>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="business.html">Business Ideas</a>
+    <a href="success.html">Success Stories</a>
+    <button onclick="logout()">Logout</button>
+  </nav>
+</header>
+
+<section>
+  <h1>Welcome, <span id="userName"></span>! 🌸</h1>
+  <p>Welcome to your SheLeads dashboard.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>💡 Business Ideas</h3>
+      <p>Explore ideas and find inspiration for your business.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌱 Success Stories</h3>
+      <p>Learn from inspiring women entrepreneurs.</p>
+    </div>
+
+  <div class="card">
+     <h3>📢 Share Your Business</h3>
+     <p>Tell others about your own business.</p>
+     <a href="sharebusiness.html" class="btn">Share Business →</a>
+  </div>
+
+  </div>
+</section>
+
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    location.href = "login.html";
+  }
+
+  document.getElementById("userName").textContent =
+    localStorage.getItem("name");
+
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>
